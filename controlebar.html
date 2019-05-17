@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Carlos Schwanke, Diogo Brito, Helder">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>SySTime</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/dashboard/">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">SysTime</a>
+        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="#">Sair</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">
+                                <span data-feather="home"></span>
+                                Home <span class="sr-only"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="zap"></span>
+                                Controle Society
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="controlebar.html">
+                                <span data-feather="zap"></span>
+                                Controle Bar
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="users"></span>
+                                Clientes Devedores
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="credit-card"></span>
+                                Pagamentos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="bar-chart-2"></span>
+                                Relatórios
+                            </a>
+                        </li>
+                    </ul>
+            </nav>
+        </div>
+
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div
+                class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Calcula Bar</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group mr-2">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Compartilhar</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Imprimir</button>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-sm table-bordered">
+                    <thead>
+                        <tr>
+                            <th colspan="3" class="success">
+                                <center>BEBIDAS</center>
+                            </th>
+                        </tr>
+                        <tr class="info">
+                            <th>
+                                <center>Produtos</center>
+                            </th>
+                            <th>
+                                <center>Quantidades</center>
+                            </th>
+                            <th>
+                                <center>Preço/Unidade</center>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Água</td>
+                            <td><button id="somaElements" class="btn btn-primary btn-sm">+</button>
+                                <button id="subtraiElements" class="btn btn-primary btn-sm">-</button>
+                                <input id="quantidade" value="0" readonly />
+                            </td>
+
+                            <td><input id='valor' value="R$ 2,50" readonly style="border:none;background-color:#ddd" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Água Tônica</td>
+                            <td><button id="somaElemento" class="btn btn-primary btn-sm">+</button>
+                                <button id="subtraiElemento" class="btn btn-primary btn-sm">-</button></td>
+                            <td>R$ 3,00</td>
+                        </tr>
+                        <tr>
+                            <td>Cerveja Lata</td>
+                            <td><button id="somaElemento" class="btn btn-primary btn-sm">+</button>
+                                <button id="subtraiElemento" class="btn btn-primary btn-sm">-</button></td>
+                            <td>R$ 3,50</td>
+                        </tr>
+                        <tr>
+                            <td>Refrigerante lata</td>
+                            <td><button id="somaElemento" class="btn btn-primary btn-sm">+</button>
+                                <button id="subtraiElemento" class="btn btn-primary btn-sm">-</button></td>
+                            <td>R$ 3,00</td>
+                        </tr>
+                        <tr>
+                            <td>Refrigerante Litro</td>
+                            <td><button id="somaElemento" class="btn btn-primary btn-sm">+</button>
+                                <button id="subtraiElemento" class="btn btn-primary btn-sm">-</button></td>
+                            <td>R$ 5,00</td>
+                        </tr>
+
+                        <tr>
+                            <td>Laranjinha</td>
+                            <td><button id="somaElemento" class="btn btn-primary btn-sm">+</button>
+                                <button id="subtraiElemento" class="btn btn-primary btn-sm">-</button></td>
+                            <td>R$ 2,00</td>
+                        </tr>
+                        <tr>
+                            <td>Isotônico</td>
+                            <td><button id="somaElemento" class="btn btn-primary btn-sm">+</button>
+                                <button id="subtraiElemento" class="btn btn-primary btn-sm">-</button></td>
+                            <td id='value[1]'>R$ 7,00</td>
+                        </tr>
+                        <tr>
+                            <td>Energético Lata</td>
+                            <td><button id="somaElemento" class="btn btn-primary btn-sm">+</button>
+                                <button id="subtraiElemento" class="btn btn-primary btn-sm">-</button></td>
+                            <td>R$ 8,00</td>
+                        </tr>
+                        <tr>
+                            <td>Energético Litro</td>
+                            <td><button id="somaElemento" class="btn btn-primary btn-sm">+</button>
+                                <button id="subtraiElemento" class="btn btn-primary btn-sm">-</button></td>
+                            <td>R$ 12,00</td>
+                        </tr>
+                        <tr>
+                            <td>Suco de caixa</td>
+                            <td><button id="somaElemento" class="btn btn-primary btn-sm">+</button>
+                                <button id="subtraiElemento" class="btn btn-primary btn-sm">-</button></td>
+                            <td>R$ 2,00</td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th colspan="3" class="success">
+                                <center>ALIMENTOS</center>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Salgado</td>
+                            <td><button id="somaElemento" class="btn btn-primary btn-sm">+</button>
+                                <button id="subtraiElemento" class="btn btn-primary btn-sm">-</button></td>
+                            <td>R$ 3,00</td>
+                        </tr>
+                        <tr>
+                            <td>Bolo</td>
+                            <td><button id="somaElemento" class="btn btn-primary btn-sm">+</button>
+                                <button id="subtraiElemento" class="btn btn-primary btn-sm">-</button></td>
+                            <td>R$ 3,00</td>
+                        </tr>
+                        <tr>
+                            <td>Militos</td>
+                            <td><button id="somaElemento" class="btn btn-primary btn-sm">+</button>
+                                <button id="subtraiElemento" class="btn btn-primary btn-sm">-</button></td>
+                            <td>R$ 1,50</td>
+                        </tr>
+                        </tr>
+                        <thead>
+                            <tr class="info">
+
+                                <th>
+                                    <left>SOMA/QTD: <input type="number" id='result' value="0" readonly /> R$ </left>
+                                </th>
+                                <th>
+                                    <center>VALOR RECEBIDO: <input id="moneyclient"
+                                            placeholder="Dinheiro do cliente..." /> R$
+                                    </center>
+                                </th>
+                                <th>
+                                    <center>TROCO <input type="number" id='troco' value="0" /> R$</center>
+                                </th>
+                            </tr>
+                        </thead>
+                    </tbody>
+                    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                        crossorigin="anonymous"></script>
+                    <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+                    <script src="/docs/4.3/dist/js/bootstrap.bundle.min.js"
+                        integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"
+                        crossorigin="anonymous"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+                    <script src="dashboard.js"></script>
+</body>
+</body>
+
+
+
+
+</body>
+
+</html>
